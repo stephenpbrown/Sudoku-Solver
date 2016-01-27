@@ -1,0 +1,58 @@
+Sudoku Solver
+Name: 
+Email: 
+4/15/2015 (wcochran@wsu.edu) ...... initial creation date
+
+Description:
+  Sudoku puzzle solver that uses backtracking.
+  Before backtracking the program attempts to 
+  reduce the search space by solving for some 
+  of the numbers by located "naked singles" as 
+  described at 
+      http://www.sudokuwiki.org/Naked_Candidates
+  For more on the backtracking algorithm see the
+  following video:
+      https://youtu.be/p-gpaIGRCQI
+
+Building
+  The source is in written in C++11 and requires
+  a C++ compiler of recent vintage (g++ 4.7 or later,
+  clang++). The provided Makefile will automate
+  the build via "make" (use -O3 in CPPFLAGS for best performace).
+
+         make         # builds 'solvesudoku' app
+         make clean   # deletes build riffraff
+
+Running:
+  The program reads a 81 character string from stdin
+  that describes the input puzzle in row-major order.
+  Each character in the string is either a dot '.' or
+  a digit for an empty space or initial number respectively.
+  I have include two files 'simple.txt' and 'hard.txt'
+  which contain a variety of sample puzzles.
+  For example, to run the program using the 13th puzzle
+  from "hard.txt", do the following:
+
+        sed -n "13p" hard.txt | ./solvesudoku 
+
+  The program will "pretty print" the original puzzle,
+  puzzle with deduced numbers, and then the final
+  solved puzzle. Puzzles should take no more than 30 sec
+  to solve on a machine of recent vintage.
+
+  To solve all the problems in 'hard.txt' you can use
+  the provided Perl script:
+
+       ./solve.pl hard.txt
+
+Files in archive:
+
+README.txt ........... This file
+Makefile ............. make builds solvesudoku app
+SudokuGrid.h ......... SudokuGrid class definition
+simple.txt ........... Some "simple" sudoku puzzles
+hard.txt ............. Some "hard" sudoku puzzles
+solve.pl ............. inputs a battery of puzzles at solver
+solvesudoku.cpp ...... solver source cide
+sudokucheck.pl........ verifies and checks solution
+   
