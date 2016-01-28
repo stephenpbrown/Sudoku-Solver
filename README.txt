@@ -45,6 +45,12 @@ Running:
 
        ./solve.pl hard.txt
 
+GitLab Continuous Integration (CI)
+ 
+   There is a .gitlab-ci.yml provided for trigger CI on
+   git push to gitlab server. This runs the scripts build.pl
+   and test.pl using a (modern) gcc environment.
+
 Files in archive:
 
 README.txt ........... This file
