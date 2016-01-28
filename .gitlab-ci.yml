@@ -1,4 +1,4 @@
 test:
-  script: "./build.pl; ./test.pl"
+  script: "prove -MTime::Limit=30 --verbose --merge"
   tags:
     - gcc

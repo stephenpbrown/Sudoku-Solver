@@ -5,9 +5,9 @@ CXX=g++
 endif
 
 ifdef SPEED
-CXXFLAGS=-std=c++11 -O3
+CXXFLAGS += -std=c++11 -O3
 else
-CXXFLAGS=-std=c++11 -Wall -Werror -g
+CXXFLAGS += -std=c++11 -Wall -Werror -g
 endif
 
 ALL=solvesudoku
