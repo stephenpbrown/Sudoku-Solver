@@ -18,10 +18,10 @@ while (<$fh>) {
     chomp;
     next unless /^[\.1-9]{81}$/;
 
-		my $output = `echo '$_' | $SOLVER | $CHECKER`;
-		if (!ok(!$?, "$_")) {
-			diag($output =~ s/^/  /mrg);
-		}
+    my $output = `echo '$_' | $SOLVER | $CHECKER`;
+    if (!ok(!$?, "$_")) {
+      diag($output =~ s/^/  /mrg);
+    }
 }
 
 close $fh;

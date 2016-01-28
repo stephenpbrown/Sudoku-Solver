@@ -10,7 +10,7 @@ my @SRC = ("solvesudoku.cpp");
 
 ok(-f "Makefile", "Makefile found");
 foreach my $SRC (@SRC) {
-	ok(-f "$SRC", "$SRC found");
+    ok(-f "$SRC", "$SRC found");
 }
 
 my $CXXFLAGS="-Wall -pedantic";
