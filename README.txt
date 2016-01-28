@@ -54,5 +54,9 @@ simple.txt ........... Some "simple" sudoku puzzles
 hard.txt ............. Some "hard" sudoku puzzles
 solve.pl ............. inputs a battery of puzzles at solver
 solvesudoku.cpp ...... solver source cide
-sudokucheck.pl........ verifies and checks solution
-   
+sudokucheck.pl........ verifies and checks solution   
+build.pl.............. builds for DEBUG and then for SPEED (for CI)
+gtestpuzzles.txt ...... Test puzzles used in CI
+test.pl .............. Continueous Integration (CI) test
+.gitlab-ci.yml ....... CI test specification for GitLab
+.gitignore ........... files for git to ignore

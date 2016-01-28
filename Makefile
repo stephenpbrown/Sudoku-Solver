@@ -3,13 +3,18 @@ CXX=clang++
 else
 CXX=g++
 endif
-CPPFLAGS=-std=c++11 -Wall -g
-#CPPFLAGS=-std=c++11 -O3
+
+ifdef SPEED
+CXXFLAGS=-std=c++11 -O3
+else
+CXXFLAGS=-std=c++11 -Wall -Werror -g
+endif
+
 ALL=solvesudoku
 
 all: $(ALL)
 
-JUNK=*.o *~ *.dSYM *.gch *.zip *.gz
+JUNK=*.o *~ *.dSYM *.gch
 
 clean:
 	-rm -rf $(JUNK)
@@ -18,16 +23,10 @@ clobber:
 	-rm -rf $(JUNK) $(ALL)
 
 .cpp.o:
-	$(CXX) -c $(CPPFLAGS) $<
+	$(CXX) -c $(CXXFLAGS) $<
 
 solvesudoku.o: solvesudoku.cpp SudokuGrid.h
 
 solvesudoku: solvesudoku.o
-	$(CXX) $(CPPFLAGS) $^ -o $@
-
-zip:
-	zip ss.zip README.txt Makefile *.{cpp,h}
-
-archive:
-	tar czvf ss.tar.gz README.txt Makefile *.{cpp,h}
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
