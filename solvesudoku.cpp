@@ -180,8 +180,10 @@ int main(int argc, char *argv[])
 	if(solveSudoku(grid)) // Solve the puzzle
 		print(grid); // Print the solved puzzle
 	else
+	{
 		cout << "Puzzle is not solvable" << "\n\n";
 		print(grid); // Prints unsolvable puzzle
+    }
 
   	return 0;
 }
