@@ -139,6 +139,24 @@ bool solveSudoku(SudokuGrid& grid)
 	return false; // not solved, back track
 }
 
+// Prints the puzzle
+void print(SudokuGrid& grid)
+{
+	for(int r = 0; r < 9; r++) 
+	{
+		for(int c = 0; c < 9; c++)
+		{
+			if(grid.number(r,c) == 0)
+				cout << ". ";
+			else cout << grid.number(r,c) << " ";
+			if(c%3 == 2 && c != 8) cout << "| ";
+		}
+		if(r%3 == 2 && r != 8) cout << "\n" << "------+-------+------" << "\n";
+		else cout << "\n";
+	}	
+	cout << "\n";
+}
+
 // Main function
 int main(int argc, char *argv[])
 {
@@ -156,51 +174,13 @@ int main(int argc, char *argv[])
 	SudokuGrid grid(puzzle); // Constructs a grid from the puzzle string
 
 	cout << "\n";
-	for(int r = 0; r < 9; r++) // Prints out the unsolved puzzle
-	{
-		for(int c = 0; c < 9; c++)
-		{
-			if(grid.number(r,c) == 0)
-				cout << ". ";
-			else cout << grid.number(r,c) << " ";
-			if(c%3 == 2 && c != 8) cout << "| ";
-		}
-		if(r%3 == 2 && r != 8) cout << "\n" << "------+-------+------" << "\n";
-		else cout << "\n";
-	}	
-	cout << "\n";
-
+	print(grid); // Print initial puzzle
 	deduce(grid); // Deduce the puzzle
-	
-	for(int r = 0; r < 9; r++) // Prints out the deduced puzzle
-	{
-		for(int c = 0; c < 9; c++)
-		{
-			if(grid.number(r,c) == 0)
-				cout << ". ";
-			else cout << grid.number(r,c) << " ";
-			if(c%3 == 2 && c != 8) cout << "| ";
-		}
-		if(r%3 == 2 && r != 8) cout << "\n" << "------+-------+------" << "\n";
-		else cout << "\n";
-	}	
-	cout << "\n";	
-
-	solveSudoku(grid); // Solve the puzzle
-	
-	for(int r = 0; r < 9; r++) // Prints out the solved puzzle
-	{
-		for(int c = 0; c < 9; c++)
-		{
-			if(grid.number(r,c) == 0)
-				cout << ". ";
-			else cout << grid.number(r,c) << " ";
-			if(c%3 == 2 && c != 8) cout << "| ";
-		}
-		if(r%3 == 2 && r != 8) cout << "\n" << "------+-------+------" << "\n";
-		else cout << "\n";
-	}	
-	cout << "\n";
+	print(grid); // Print deduced puzzle
+	if(solveSudoku(grid)) // Solve the puzzle
+		print(grid); // Print the solved puzzle
+	else
+		cout << "Puzzle is not solvable" << "\n\n";
 
   	return 0;
 }
