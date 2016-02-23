@@ -15,7 +15,6 @@
 
 class SudokuGrid {
 private:
-	std::array<std::array<Cell, 9>, 9> grid; // Creates the grid with 81 cells
   	struct Cell{ // Cell structure 
 	std::bitset<10> pencils; // Number of pencils for each cell
 	int number; // Number for each cell
@@ -23,7 +22,7 @@ private:
 	bool solved; // If cell is solved
 	};
 public:
-
+	std::array<std::array<Cell, 9>, 9> grid; // Creates the grid with 81 cells
 	// Constructor
   	SudokuGrid(std::string s) 
 	{ 
