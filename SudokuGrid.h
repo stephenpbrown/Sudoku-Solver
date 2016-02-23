@@ -15,14 +15,14 @@
 
 class SudokuGrid {
 private:
+	std::array<std::array<Cell, 9>, 9> grid; // Creates the grid with 81 cells
   	struct Cell{ // Cell structure 
-	std::bitset<9> pencils; // Number of pencils for each cell
+	std::bitset<10> pencils; // Number of pencils for each cell
 	int number; // Number for each cell
     bool fixed; // If cell is fixed during input
 	bool solved; // If cell is solved
 	};
 public:
-	std::array<std::array<Cell, 9>, 9> grid; // Creates the grid with 81 cells
 
 	// Constructor
   	SudokuGrid(std::string s) 
